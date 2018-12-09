@@ -53,8 +53,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="jumbotron jumbotron-fluid">
                 <div class="container">
                     <h1 class="display-4">Consulta de CNPJ</h1>
-                    <p class="lead">Faz consulta de informação para um determinado CNPJ via APIs da</p>
-                    <a href="https://servicos.serpro.gov.br/api-serpro/" target="_blank">SERPRO</a>
+                    <p class="lead">Faz consulta de informação para um determinado CNPJ via APIs da <a href="https://servicos.serpro.gov.br/api-serpro/" target="_blank">SERPRO</a> (Ambiente de Testes)</p>
+                    
                 </div>
             </div>
 
@@ -75,7 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         codigo
                     </td>
                     <td>
-                        <?php echo $result->situacao_cadastral->codigo;?>
+                        <?php echo isset($result) ? $result->situacao_cadastral->codigo : "Aguardando dados..."; ?>
                     </td>
                 </tr>
                 <tr>
@@ -83,7 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         Motivo
                     </td>
                     <td>
-                        <?php echo $result->situacao_cadastral->motivo;?>
+                        <?php echo isset($result) ? $result->situacao_cadastral->motivo : "Aguardando dados...";?>
                     </td>
                 </tr>
                 <tr>
@@ -91,7 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         Data
                     </td>
                     <td>
-                        <?php echo $result->situacao_cadastral->data;?>
+                        <?php echo isset($result) ? $result->situacao_cadastral->data : "Aguardando dados...";?>
                     </td>
                 </tr>
             </table>
@@ -102,7 +102,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         NI
                     </td>
                     <td>
-                        <?php echo $result->ni;?>
+                        <?php echo isset($result) ? $result->ni : "Aguardando dados...";?>
                     </td>
                 </tr>
                 <tr>
@@ -110,7 +110,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         Data Abertura
                     </td>
                     <td>
-                        <?php echo $result->data_abertura;?>
+                        <?php echo isset($result) ? $result->data_abertura : "Aguardando dados...";?>
                     </td>
                 </tr>
                 <tr>
@@ -118,7 +118,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         Nome Empresarial
                     </td>
                     <td>
-                        <?php echo $result->nome_empresarial;?>
+                        <?php echo isset($result) ? $result->nome_empresarial : "Aguardando dados...";?>
                     </td>
                 </tr>
                 <tr>
@@ -126,7 +126,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         Nome Fantasia
                     </td>
                     <td>
-                        <?php echo $result->nome_fantasia;?>
+                        <?php echo isset($result) ? $result->nome_fantasia : "Aguardando dados...";?>
                     </td>
                 </tr>
                 <tr>
@@ -134,7 +134,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         Situação Especial
                     </td>
                     <td>
-                        <?php echo $result->situacao_especial;?>
+                        <?php echo isset($result) ? $result->situacao_especial : "Aguardando dados...";?>
                     </td>
                 </tr>
                 <tr>
@@ -142,7 +142,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         Orgão
                     </td>
                     <td>
-                        <?php echo $result->orgao;?>
+                        <?php echo isset($result) ? $result->orgao : "Aguardando dados...";?>
                     </td>
                 </tr>
                 <tr>
@@ -150,7 +150,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         Tipo Estabelecimento
                     </td>
                     <td>
-                        <?php echo $result->tipo_estabelecimento;?>
+                        <?php echo isset($result) ? $result->tipo_estabelecimento : "Aguardando dados...";?>
                     </td>
                 </tr>
                 <tr>
@@ -158,7 +158,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         Correio Eletronico
                     </td>
                     <td>
-                        <?php echo $result->correio_eletronico;?>
+                        <?php echo isset($result) ? $result->correio_eletronico : "Aguardando dados...";?>
                     </td>
                 </tr>
                 <tr>
@@ -166,7 +166,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         Capital Social
                     </td>
                     <td>
-                        <?php echo $result->capital_social;?>
+                        <?php echo isset($result) ? $result->capital_social : "Aguardando dados...";?>
                     </td>
                 </tr>
                 <tr>
@@ -174,7 +174,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         Porte
                     </td>
                     <td>
-                        <?php echo $result->porte;?>
+                        <?php echo isset($result) ? $result->porte : "Aguardando dados...";?>
                     </td>
                 </tr>
                 <tr>
@@ -182,7 +182,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         Nome Orgão
                     </td>
                     <td>
-                        <?php echo $result->nome_orgao;?>
+                        <?php echo isset($result) ? $result->nome_orgao : "Aguardando dados...";?>
                     </td>
                 </tr>
                 <tr>
@@ -190,15 +190,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         Ente. Federativo
                     </td>
                     <td>
-                        <?php echo $result->ente_federativo;?>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Data Situação Especial
-                    </td>
-                    <td>
-                        <?php echo $result->data_situacao_especial;?>
+                        <?php echo isset($result) ? $result->ente_federativo : "Aguardando dados...";?>
                     </td>
                 </tr>
             </table>
@@ -210,7 +202,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         Bairro
                     </td>
                     <td>
-                        <?php echo $result->endereco->bairro;?>
+                        <?php echo isset($result) ? $result->endereco->bairro : "Aguardando dados...";?>
                     </td>
                 </tr>
                 <tr>
@@ -218,7 +210,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         Complemento
                     </td>
                     <td>
-                        <?php echo $result->endereco->complemento;?>
+                        <?php echo isset($result) ? $result->endereco->complemento : "Aguardando dados...";?>
                     </td>
                 </tr>
                 <tr>
@@ -226,7 +218,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         CEP
                     </td>
                     <td>
-                        <?php echo $result->endereco->cep;?>
+                        <?php echo isset($result) ? $result->endereco->cep : "Aguardando dados...";?>
                     </td>
                 </tr>
                 <tr>
@@ -234,7 +226,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         Municipio
                     </td>
                     <td>
-                        <?php echo $result->endereco->municipio;?>
+                        <?php echo isset($result) ? $result->endereco->municipio : "Aguardando dados...";?>
                     </td>
                 </tr>
                 <tr>
@@ -242,7 +234,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         UF
                     </td>
                     <td>
-                        <?php echo $result->endereco->uf;?>
+                        <?php echo isset($result) ? $result->endereco->uf : "Aguardando dados...";?>
                     </td>
                 </tr>
                 <tr>
@@ -250,7 +242,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         Logradouro
                     </td>
                     <td>
-                        <?php echo $result->endereco->logradouro;?>
+                        <?php echo isset($result) ? $result->endereco->logradouro : "Aguardando dados...";?>
                     </td>
                 </tr>
                 <tr>
@@ -258,7 +250,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         Numero
                     </td>
                     <td>
-                        <?php echo $result->endereco->numero;?>
+                        <?php echo isset($result) ? $result->endereco->numero : "Aguardando dados...";?>
                     </td>
                 </tr>
             </table>
@@ -270,7 +262,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         Código
                     </td>
                     <td>
-                        <?php echo $result->cnae_principal->codigo;?>
+                        <?php echo isset($result) ? $result->cnae_principal->codigo : "Aguardando dados...";?>
                     </td>
                 </tr>
                 <tr>
@@ -278,7 +270,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         Descrição
                     </td>
                     <td>
-                        <?php echo $result->cnae_principal->descricao;?>
+                        <?php echo isset($result) ? $result->cnae_principal->descricao : "Aguardando dados...";?>
                     </td>
                 </tr>
             </table>
@@ -290,7 +282,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         Código
                     </td>
                     <td>
-                        <?php echo $result->natureza_juridica->codigo;?>
+                        <?php echo isset($result) ? $result->natureza_juridica->codigo : "Aguardando dados...";?>
                     </td>
                 </tr>
                 <tr>
@@ -298,7 +290,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         Descrição
                     </td>
                     <td>
-                        <?php echo $result->natureza_juridica->descricao;?>
+                        <?php echo isset($result) ? $result->natureza_juridica->descricao : "Aguardando dados...";?>
                     </td>
                 </tr>
             </table>
